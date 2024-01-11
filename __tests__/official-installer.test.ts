@@ -169,10 +169,7 @@ describe('setup-node', () => {
     }
   );
 
-  //--------------------------------------------------
-  // Found in cache tests
-  //--------------------------------------------------
-
+ 
   it('finds version in cache with stable true', async () => {
     inputs['node-version'] = '12';
     inputs.stable = 'true';
@@ -222,9 +219,7 @@ describe('setup-node', () => {
     expect(cnSpy).toHaveBeenCalledWith('::error::' + errMsg + osm.EOL);
   });
 
-  //--------------------------------------------------
-  // Manifest tests
-  //--------------------------------------------------
+ 
 
   it('downloads a version from a manifest match', async () => {
     os.platform = 'linux';
@@ -241,7 +236,6 @@ describe('setup-node', () => {
     const expectedUrl =
       'https://github.com/actions/node-versions/releases/download/12.16.2-20200507.95/node-12.16.2-linux-x64.tar.gz';
 
-    // ... but not in the local cache
     findSpy.mockImplementation(() => '');
 
     dlSpy.mockImplementation(async () => '/some/temp/path');
